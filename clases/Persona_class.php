@@ -1,6 +1,6 @@
 <?php
 
-    class Persona{
+    class Persona_class{
         public $nombre;
         public $apellido;
         public $sexo;
@@ -52,7 +52,7 @@
         }
     }
 //+++++++++++++++++++++++++++++++++++++++
-    class Cosas_personas extends Persona{
+    class Cosas_personas extends Persona_class{
         /**
         *Cosas que puede hacer segun su estado de animo
         */

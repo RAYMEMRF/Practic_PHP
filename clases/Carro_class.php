@@ -6,7 +6,7 @@
      *andar
      *apagar
      */
-    class Carro{
+    class Carro_class{
 
         public $estado;
         public $combustible;
