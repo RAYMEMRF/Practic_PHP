@@ -34,13 +34,24 @@
             $this->edad = $edad;
         }
 
+        public function comprobar_mayoria(){
+            if ($this->edad >= 18) {
+                echo "Eres mayor" . "<br>";
+            }else {
+                echo "Aun eres menor" . "<br>";
+            }
+        }
+
+
+
+
     }
 
-    $Juancho = new Persona("Juan","Sanchez",25); //dia tendra un rango de 0 a 1
+    $Juancho = new Persona("Juan","Sanchez", 17); //dia tendra un rango de 0 a 1
+    $Esther = new Persona ("Esther", "Rosales", 19);
 
-echo "Nombre de personaje" . $Juancho->this->nombre;
-
-
+    $Juancho->comprobar_mayoria();
+    $Esther->comprobar_mayoria();
 
     // // usando los métodos constructores y destructores.
     //
