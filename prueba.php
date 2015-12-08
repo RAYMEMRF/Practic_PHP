@@ -36,15 +36,11 @@
 
         public function comprobar_mayoria(){
             if ($this->edad >= 18) {
-                echo "Eres mayor" . "<br>";
+                echo $this->nombre . " " . "Eres mayor" . "<br>";
             }else {
-                echo "Aun eres menor" . "<br>";
+                echo $this->nombre . " " . "Aun eres menor" . "<br>";
             }
         }
-
-
-
-
     }
 
     $Juancho = new Persona("Juan","Sanchez", 17); //dia tendra un rango de 0 a 1
