@@ -27,37 +27,18 @@
         public $nombre;
         public $apellido;
         public $edad;
-        public $comida;
-        public $bebida;
-        public $dia;
-        public $cansancio;
 
-
-        public function __construct($nombre, $apellido,$edad, $comida,$bebida,$dia){
+        public function __construct($nombre, $apellido,$edad){
             $this->nombre = $nombre;
             $this ->apellido = $apellido;
             $this->edad = $edad;
-            $this->comida = $comida;
-            $this->bebida = $bebida;
-            $this->dia = $dia;
         }
 
-        public function hambre(){
-            return $this->dia * 100 / 1;
-        }
-
-        public function sed(){
-            return $this->dia  * 100 / 1;
-        }
-
-        public function cansancioc (){
-            return $this->cansancio = ($this->hambre() + $this->sed()) * 100 / 1;
-        }
     }
 
-    $Juancho = new Persona("Juan","Sanchez",25,"Arroz con pollo", "Refresco",0.02); //dia tendra un rango de 0 a 1
+    $Juancho = new Persona("Juan","Sanchez",25); //dia tendra un rango de 0 a 1
 
-echo "Cansancio: " . $Juancho->sed() . "%";
+echo "Nombre de personaje" . $Juancho->this->nombre;
 
 
 
