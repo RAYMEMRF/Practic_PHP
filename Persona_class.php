@@ -26,28 +26,38 @@
     class Persona{
         public $nombre;
         public $apellido;
+        public $sexo;
         public $edad;
 
-        public function __construct($nombre, $apellido,$edad){
+        public function __construct($nombre, $apellido,$edad,$sexo){
             $this->nombre = $nombre;
             $this ->apellido = $apellido;
             $this->edad = $edad;
+            $this->sexo = $sexo;
         }
 
         public function comprobar_mayoria(){
             if ($this->edad >= 18) {
-                echo $this->nombre . " " . "Eres mayor" . "<br>";
+                echo $this->nombre . " Eres mayor" . "<br>";
             }else {
-                echo $this->nombre . " " . "Aun eres menor" . "<br>";
+                echo $this->nombre . " Aun eres menor" . "<br>";
+            }
+        }
+        public function Llamar(){
+            if ($this->sexo == "Mujer" || $this->sexo == "mujer"){
+                echo "Las mujeres hacen muchas llamadas y " . $this->nombre . " no es la exepcion!" . "<br>";
+            }else {
+                echo $this->nombre . " Es un mero macho y no se anda en esas " . "<br>";
             }
         }
     }
 
-    $Juancho = new Persona("Juan","Sanchez", 17); //dia tendra un rango de 0 a 1
-    $Esther = new Persona ("Esther", "Rosales", 19);
+    $Juancho = new Persona("Juan","Sanchez", 17, "Hombre");
+    $Esther = new Persona ("Esther", "Rosales", 19,"Mujer");
 
-    $Juancho->comprobar_mayoria();
-    $Esther->comprobar_mayoria();
+    $Juancho->comprobar_mayoria() . $Juancho->Llamar();
+    echo "<br>";
+    $Esther->comprobar_mayoria() . $Esther->Llamar();
 
     // // usando los métodos constructores y destructores.
     //
