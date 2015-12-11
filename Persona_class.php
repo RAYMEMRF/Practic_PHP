@@ -1,28 +1,4 @@
 <?php
-//     $h = 1 + 8;
-//     $variable = 23;
-//     $vari = "holas";
-//     $herodoc = <<<HO
-//     Esto es una prueba de herodoc
-// HO;
-//
-//     echo "Hola mundo<br><br>";
-//     echo $h . "<br><br>";
-//     echo gettype($variable) . "<br>";//consultar tipo de variable con gettype
-//     echo "<br>" . $herodoc . "<br>";
-//     echo "<br><br>esto es un saludo $vari";
-//
-//     if($variable == integer){
-//         echo  "<hr>" . "jue verdadero :3 ";
-//     }
-//     else{
-//         echo "<br>" . "no jue verdadero :(" ;
-//     }
-//
-//     $gen = 'hola';
-//
-//     echo "<br> esto -> {$gen}"
-
     class Persona{
         public $nombre;
         public $apellido;
@@ -49,6 +25,10 @@
             }else {
                 echo $this->nombre . " Es un mero macho y no se anda en esas " . "<br>";
             }
+        }
+
+        public function Static_fun(){
+            echo "hola mundo";
         }
     }
 
