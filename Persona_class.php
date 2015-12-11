@@ -14,30 +14,32 @@
 
         public function comprobar_mayoria(){
             if ($this->edad >= 18) {
-                echo $this->nombre . " Eres mayor" . "<br>";
+                echo $this->nombre . " Eres mayor <br>";
             }else {
-                echo $this->nombre . " Aun eres menor" . "<br>";
+                echo $this->nombre . " Aun eres menor <br>";
             }
         }
         public function Llamar(){
             if ($this->sexo == "Mujer" || $this->sexo == "mujer"){
-                echo "Las mujeres hacen muchas llamadas y " . $this->nombre . " no es la exepcion!" . "<br>";
+                echo "Las mujeres hacen muchas llamadas y " . $this->nombre . " no es la exepcion! <br>";
             }else {
-                echo $this->nombre . " Es un mero macho y no se anda en esas " . "<br>";
+                echo $this->nombre . " Es un mero macho y no se anda en esas <br>";
             }
         }
 
-        public function Static_fun(){
+        public static function Static_fun(){
             echo "hola mundo";
         }
     }
 
     $Juancho = new Persona("Juan","Sanchez", 17, "Hombre");
-    $Esther = new Persona ("Esther", "Rosales", 19,"Mujer");
+    $Esther = new Persona ("Esther", "Rosales", 19,"mujer");
 
     $Juancho->comprobar_mayoria() . $Juancho->Llamar();
     echo "<br>";
     $Esther->comprobar_mayoria() . $Esther->Llamar();
+    echo "<br>";
+    Persona::Static_fun();
 
     // // usando los métodos constructores y destructores.
     //
