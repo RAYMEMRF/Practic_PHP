@@ -58,6 +58,14 @@
                 }
             }
 
+            class Cosas_personas extends Persona{
+                public function movilizar(){
+
+                }
+
+                
+            }
+
             $Juancho = new Persona("Juan","Sanchez", 17, "Hombre");
             $Esther = new Persona ("Esther", "Rosales", 19,"mujer");
 
