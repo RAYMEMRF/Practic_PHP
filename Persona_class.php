@@ -15,12 +15,14 @@
                 public $apellido;
                 public $sexo;
                 public $edad;
+                public $animo;
 
-                public function __construct($nombre, $apellido,$edad,$sexo){
+                public function __construct($nombre, $apellido,$edad,$sexo,$animo){
                     $this->nombre = $nombre;
                     $this ->apellido = $apellido;
                     $this->edad = $edad;
                     $this->sexo = $sexo;
+                    $this->animo = $animo;
                 }
 
                 public function comprobar_mayoria(){
@@ -59,15 +61,16 @@
             }
 
             class Cosas_personas extends Persona{
+
                 public function movilizar(){
-
+                    if ($this->animo == "mal"){
+                        ;
+                    }
                 }
-
-                
             }
 
-            $Juancho = new Persona("Juan","Sanchez", 17, "Hombre");
-            $Esther = new Persona ("Esther", "Rosales", 19,"mujer");
+            $Juancho = new Persona("Juan","Sanchez", 17, "Hombre","mal");//mal-normal-excelente
+            $Esther = new Persona ("Esther", "Rosales", 19,"mujer","exelente");//mal-normal-excelente
 
             $Esther->comprobar_mayoria();
             echo "<br>";
@@ -76,7 +79,7 @@
             $Esther->Hablar();
             echo "<br>";
             $Juancho->Hablar();
-            Persona::Static_fun();
+            Persona::Static_fun();//Menoto estatico
 
 
             // // usando los métodos constructores y destructores.
