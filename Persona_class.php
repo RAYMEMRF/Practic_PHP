@@ -61,7 +61,9 @@
             }
 
             class Cosas_personas extends Persona{
-
+                /**
+                *
+                */
                 public function movilizar(){
                     if ($this->animo == "mal"){
                         ;
