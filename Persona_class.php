@@ -16,7 +16,7 @@
                 public $sexo;
                 public $edad;
                 public $animo;
-
+                //************************
                 public function __construct($nombre, $apellido,$edad,$sexo,$animo){
                     $this->nombre = $nombre;
                     $this ->apellido = $apellido;
@@ -24,7 +24,7 @@
                     $this->sexo = $sexo;
                     $this->animo = $animo;
                 }
-
+                //************************
                 public function comprobar_mayoria(){
                     if ($this->edad >= 18) {
                         echo $this->nombre . " Eres mayor <br>";
@@ -32,6 +32,7 @@
                         echo $this->nombre . " Aun eres menor <br>";
                     }
                 }
+                //************************
                 public function Llamar(){
                     if ($this->sexo == "Mujer" || $this->sexo == "mujer"){
                         echo "Las mujeres hacen muchas llamadas y " . $this->nombre . " no es la exepcion! <br>";
@@ -39,7 +40,7 @@
                         echo $this->nombre . " Es un mero macho y no se anda en esas <br>";
                     }
                 }
-
+                //******************
                 public function Hablar(){
                     if ($this->sexo == 'hombre' || $this->sexo == 'Hombre') {
                         if ($this->edad <= 10){
@@ -54,26 +55,50 @@
                         echo $this->nombre . " es mujer y entre mujeres se entienden ";
                     }
                 }
-
+                //************************
                 public static function Static_fun(){
                     echo "<p> Probando static :3";
                 }
             }
-
+//+++++++++++++++++++++++++++++++++++++++
             class Cosas_personas extends Persona{
                 /**
-                *
+                *Cosas que puede hacer segun su estado de animo
                 */
-                public function movilizar(){
-                    if ($this->animo == "mal"){
-                        ;
+                //************************
+                public function what_can_do(){
+                    echo "<hr><br>" . $this->nombre . $this->caminar() . ",". $this->trabajar() . "<hr><br>";
+                }
+                //************************
+                protected function caminar(){
+                    if ($this->animo == 'mal'){
+                        return " no puede caminar";
+                    }
+                    elseif ($this->animo == 'normal') {
+                        return " caminar solo de su casa al trabajo y biciversa";
+                    }
+                    elseif ($this->animo == 'exelente') {
+                        return " recorrer el mundo es lo que quiere";
+                    }
+                }
+                //************************
+                protected function trabajar(){
+                    if ($this->animo == 'mal') {
+                        return " no puede trabajar";
+                    }
+                    elseif ($this->animo == 'normal') {
+                        return " puede hacer lo que acostumbra";
+                    }
+                    elseif ($this->animo == 'exelente') {
+                        return " puede hacer lo que se proponga en el dia";
                     }
                 }
             }
 
+//+++++++++++++++++++++++++++++++++++++++
             $Juancho = new Persona("Juan","Sanchez", 17, "Hombre","mal");//mal-normal-excelente
             $Esther = new Persona ("Esther", "Rosales", 19,"mujer","exelente");//mal-normal-excelente
-
+            $Richard = new Cosas_personas('Richard','Yerian',19,'hombre','exelente');
             $Esther->comprobar_mayoria();
             echo "<br>";
             $Esther->Llamar();
@@ -81,8 +106,8 @@
             $Esther->Hablar();
             echo "<br>";
             $Juancho->Hablar();
-            Persona::Static_fun();//Menoto estatico
-
+            Persona::Static_fun();//Metodo estatico
+            $Richard->what_can_do();
 
             // // usando los métodos constructores y destructores.
             //
