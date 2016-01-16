@@ -74,23 +74,35 @@
                     if ($this->animo == 'mal'){
                         return " no puede caminar";
                     }
-                    elseif ($this->animo == 'normal') {
+                    elseif ($this->animo == 'normal'){
                         return " caminar solo de su casa al trabajo y biciversa";
                     }
-                    elseif ($this->animo == 'exelente') {
+                    elseif ($this->animo == 'exelente'){
                         return " recorrer el mundo es lo que quiere";
                     }
                 }
                 //************************
                 protected function trabajar(){
-                    if ($this->animo == 'mal') {
+                    if ($this->animo == 'mal'){
                         return " no puede trabajar";
                     }
-                    elseif ($this->animo == 'normal') {
+                    elseif ($this->animo == 'normal'){
                         return " puede hacer lo que acostumbra";
                     }
-                    elseif ($this->animo == 'exelente') {
+                    elseif ($this->animo == 'exelente'){
                         return " puede hacer lo que se proponga en el dia";
+                    }
+                }
+                //************************
+                protected function comer(){
+                    if ($this->animo == 'mal'){
+                        return " no tiene ganas de comer";
+                    }
+                    elseif ($this->animo == 'normal'){
+                        return " come lo normal";
+                    }
+                    elseif ($this->animo == 'exelente'){
+                        return " se puede comer hasta un elefante";
                     }
                 }
             }
