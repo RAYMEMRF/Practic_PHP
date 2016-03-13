@@ -1,4 +1,4 @@
-<?php
+<?php namespace Clases
     /**
     *comprobar combustible
     *chequeo general del vehículo(aire de cauchos, agua de motor, aceite, frenos)
@@ -26,16 +26,16 @@
             $this->movilizacion = $movilizacion;
             }
         //*********************
-        // public function comprobar_combustible(){
-        //     if ($this->combustible >= 50 ) {
-        //         return "todavía hay combustible";
-        //     }
-        //     elseif ($this->combustible < 49) {
-        //         echo "te queda medio tanque de gasolina";
-        //     }else {
-        //         echo "tanque vacío";
-        //     }
-        // }
+        public function comprobar_combustible(){
+            if ($this->combustible >= 50 ) {
+                return "todavía hay combustible";
+            }
+            elseif ($this->combustible < 49 and $this->combustible > 0) {
+                echo "casi no tienes gasolina";
+            }else{
+                echo "tanque vacío";
+            }
+        }
         //*********************
         public function encender(){
             if ($this->combustible > 0){
@@ -43,11 +43,6 @@
                 echo "carro encendido <br>";
                 }else {
                     echo "no puede encender por falta de combustible";
-                    // if ($estado) {
-                    //     $estado = false;
-                    //     echo "Apagando...";
-                    //     return $estado;
-                    // }
             }
         }
         //*********************
@@ -55,11 +50,7 @@
             $promedio_chequeo = ($this->aire_cauchos + $this->agua_motor + $this->aceite_motor  + $this->liga_frenos) / 4;
             if ( $promedio_chequeo  == 100) {
                 echo "todo a tope (Y)";
-            }
-            // elseif ($promedio_chequeo >= 50) {
-            //     echo "ATENCION! liga de grenos, agua de motor, y aceite casi al 50%";
-            // }
-            else {
+            }else {
                 echo "aires de caucho: " . round($this->aire_cauchos) . "% <br>";
                 echo "agua de motor: " . round($this->agua_motor) . "% <br>";
                 echo "aceite de motor: " . round($this->aceite_motor) . "% <br>";
@@ -82,34 +73,51 @@
                 $this->movilizacion = true;
                 echo "en movimiento... <br>";
 
-                for ($i=0; $i < $km; $i++) {
+                for ($i=0; $i <= $km; $i++) {
+
                     $this->aire_cauchos = $this->aire_cauchos - 0.3;
+                    if ($this->aire_cauchos <= 0) {
+                        $this->aire_cauchos = 0;
+                        echo "<br> sin aire <br> ";
+                        $this->chequeo_general();
+                        break;
+                    }
+
                     $this->agua_motor = $this->agua_motor - 0.1;
+                    if ($this->agua_motor <= 0) {
+                        $this->agua_motor = 0;
+                        echo "<br> motor sin agua <br>";
+                        break;
+                    }
+
                     $this->combustible = $this->combustible - 1;
+                    if ($this->combustible <= 0) {
+                        $this->combustible = 0;
+                        echo "<br> sin combustible <br>";
+                        $this->comprobar_combustible();
+                        break;
+                    }
+
                     $this->aceite_motor = $this->aceite_motor - 0.5;
+                    if ($this->aceite_motor <= 0) {
+                        $this->aceite_motor = 0;
+                        echo "<br> sin aceite <br> ";
+                        $this->chequeo_general();
+                        break;
+                    }
                     $this->liga_frenos = $this->liga_frenos - 0.2;
+                //Fin_FOR
                 }
-                // while ($this->movilizacion) {
-                //     $this->combustible = $this->combustible - $km;
-                //     //echo $this->combustible . "<br>";
-                //     if ($this->combustible == 50) {
-                //         echo "combustible al 50%...<br>";
-                //     }elseif ($this->combustible == 25) {
-                //      echo "combustible al 25%...<br>";
-                //  }elseif ($this->combustible == 0) {
-                //      $this->movilizacion = false;
-                //      echo "combustible agotado... Apagando...<br>";
-                //  }
-                // }
+                $this->Auto_shotdown();
+            //Fin_Si
+            }else {
+                echo "Enciendelo primero :P";
             }
-            // while ($this->movilizacion == false && $this->estado == true) {
-            //     echo $this->combustible. "<br>";
-            //     $this->combustible = $this->combustible - 2;
-            //     if ($this->combustible == 0) {
-            //         echo " combustible agotado, dejaste el carro encendido";
-            //         break;
-            //         }
-            //     }
+        }
+
+        public function Auto_shotdown(){
+            echo "<br> Apagando...";
+            $this->movilizacion = false;
         }
 
 }
@@ -120,9 +128,4 @@
     echo ' <hr>';
     $carrito->andar(400);
     echo ' <hr>';
-    $carrito->chequeo_general();
-    #$carrito->apagar
-
-    //Carro::chequeo_general();
-    //Carro::encender(0,true,true);
  ?>
