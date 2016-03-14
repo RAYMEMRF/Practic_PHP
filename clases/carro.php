@@ -1,4 +1,4 @@
-<?php namespace Clases
+<?php
     /**
     *comprobar combustible
     *chequeo general del vehículo(aire de cauchos, agua de motor, aceite, frenos)
@@ -51,7 +51,7 @@
             if ( $promedio_chequeo  == 100) {
                 echo "todo a tope (Y)";
             }else {
-                echo "aires de caucho: " . round($this->aire_cauchos) . "% <br>";
+                echo " <br> aires de caucho: " . round($this->aire_cauchos) . "% <br>";
                 echo "agua de motor: " . round($this->agua_motor) . "% <br>";
                 echo "aceite de motor: " . round($this->aceite_motor) . "% <br>";
                 echo "liga de frenos: " . round($this->liga_frenos) . "% <br>";
@@ -108,14 +108,17 @@
                     $this->liga_frenos = $this->liga_frenos - 0.2;
                 //Fin_FOR
                 }
-                $this->Auto_shotdown();
+                //Cuando el auto llegue a su destino se apagará
+                $this->Auto_shutdown() ;
+                //Hacer el chequeo nuevamente
+                $this->chequeo_general();
             //Fin_Si
             }else {
                 echo "Enciendelo primero :P";
             }
         }
-
-        public function Auto_shotdown(){
+        //***************************
+        public function Auto_shutdown(){
             echo "<br> Apagando...";
             $this->movilizacion = false;
         }
@@ -126,6 +129,13 @@
     echo ' <hr>';
     $carrito->encender();
     echo ' <hr>';
-    $carrito->andar(400);
+    $carrito->andar(2);
     echo ' <hr>';
+    $carrito->encender();
+    echo ' <hr>';
+    $carrito->andar(50);
+    echo ' <hr>';
+    $carrito->encender();
+    echo ' <hr>';
+    $carrito->andar(100);
  ?>
