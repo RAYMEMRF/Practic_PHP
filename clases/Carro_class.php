@@ -122,20 +122,5 @@
             echo "<br> Apagando...";
             $this->movilizacion = false;
         }
-
 }
-    $carrito = new Carro(false,100,100,100,100,100,false); #estado, combustible,aire de cauchos,agua de motor, aceite de motor, liga de frenos, movilizacion
-    $carrito->chequeo_general();
-    echo ' <hr>';
-    $carrito->encender();
-    echo ' <hr>';
-    $carrito->andar(2);
-    echo ' <hr>';
-    $carrito->encender();
-    echo ' <hr>';
-    $carrito->andar(50);
-    echo ' <hr>';
-    $carrito->encender();
-    echo ' <hr>';
-    $carrito->andar(100);
  ?>
