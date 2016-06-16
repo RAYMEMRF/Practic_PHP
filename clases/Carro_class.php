@@ -75,7 +75,7 @@
 
                 for ($i=0; $i <= $km; $i++) {
 
-                    $this->aire_cauchos = $this->aire_cauchos - 0.3;
+                    $this->aire_cauchos -= 0.3;
                     if ($this->aire_cauchos <= 0) {
                         $this->aire_cauchos = 0;
                         echo "<br> sin aire <br> ";
@@ -83,14 +83,14 @@
                         break;
                     }
 
-                    $this->agua_motor = $this->agua_motor - 0.1;
+                    $this->agua_motor -= 0.1;
                     if ($this->agua_motor <= 0) {
                         $this->agua_motor = 0;
                         echo "<br> motor sin agua <br>";
                         break;
                     }
 
-                    $this->combustible = $this->combustible - 1;
+                    $this->combustible -= 1;
                     if ($this->combustible <= 0) {
                         $this->combustible = 0;
                         echo "<br> sin combustible <br>";
@@ -98,16 +98,15 @@
                         break;
                     }
 
-                    $this->aceite_motor = $this->aceite_motor - 0.5;
+                    $this->aceite_motor -= 0.5;
                     if ($this->aceite_motor <= 0) {
                         $this->aceite_motor = 0;
                         echo "<br> sin aceite <br> ";
                         $this->chequeo_general();
                         break;
                     }
-                    $this->liga_frenos = $this->liga_frenos - 0.2;
-                //Fin_FOR
-                }
+                    $this->liga_frenos -= 0.2;
+                }//Fin_FOR
                 //Cuando el auto llegue a su destino se apagará
                 $this->Auto_shutdown() ;
                 //Hacer el chequeo nuevamente
