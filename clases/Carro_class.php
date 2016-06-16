@@ -68,6 +68,7 @@
         }
         //*********************
         public function andar($km){
+
             if ($this->estado){
 
                 $this->movilizacion = true;
