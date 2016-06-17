@@ -1,7 +1,5 @@
 <?php /*probando autoloads*/
 
-    error_reporting(E_ALL);
-
     function autoloads($clase){
         include 'clases/' . $clase . '.php';
     }
